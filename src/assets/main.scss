@@ -1,0 +1,48 @@
+$lightGray: #ccc;
+$mainGreen: #00c67e;
+$deepGray: #515151;
+$mainBg: #fafafa;
+$fontHeading: "Noto Serif", serif;
+$fontBody: "Inter", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+//media query
+
+$screen-xs-max: 300px;
+$screen-sm-max: 425px;
+$screen-md-max: 768px;
+$screen-lg-max: 992px;
+$screen-xl-max: 1440px;
+
+@mixin xs {
+  @media screen and (min-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (min-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
