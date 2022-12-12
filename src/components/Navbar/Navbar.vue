@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <Logo></Logo>
-    holas
     <Menu></Menu>
   </div>
 </template>
@@ -21,5 +20,8 @@ export default {
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap:1rem;
 }
 </style>

@@ -1,9 +1,15 @@
 <template>
   <div class="">
-    <button @click="calculatedClick()">
+    <button class="menu-btn" @click="calculatedClick()">
       {{ !this.state ? this.icons.hamburger : this.icons.close }}
     </button>
-    <div class="modal" v-show="this.state === true">
+    <div
+      class="modal"
+      v-if="this.state === true"
+      @wheel.prevent
+      @touchmove.prevent
+      @scroll.prevent
+    >
       <links-container></links-container>
       <search-icon></search-icon>
     </div>
@@ -18,11 +24,10 @@ export default {
   name: "Menu",
   components: { LinksContainer, SearchIcon },
   data() {
-    return { state: null, icons: { hamburger: "☰", close: "🗙" } };
+    return { state: false, icons: { hamburger: "☰", close: "🗙" } };
   },
   methods: {
     calculatedClick() {
-      console.log(this.state);
       return this.state ? (this.state = false) : (this.state = true);
     },
   },
@@ -31,9 +36,23 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/main.scss";
-.modal{
+.menu-btn {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  z-index: 10;
+  position: sticky;
+}
+.modal {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.233);
   position: absolute;
-  right:0;
-  top:0;
+  top: 0;
+  right: 0;
+  z-index: 1;
 }
 </style>
